@@ -1,0 +1,38 @@
+sin(x)
+cos(x)
+tan(x)
+asin(x)
+acos(x)
+atan(x)
+exp(x)
+sqrt(x)
+log(x)
+log10(x)
+abs(x) %If x is complex, returns magnitude
+min(x)
+max(x)
+ceil(x)
+floor(x)
+round(x)
+rem(x)
+rand % Uniformly distributed pseudorandom numbers
+randi % Uniformly distributed pseudorandom integers
+randn % Normally distributed pseudorandom numbers
+
+%Complex math operations
+abs(x)   % Magnitude of complex variable x
+phase(x) % Phase (or angle) of complex variable x
+real(x)  % Returns the real part of x (i.e returns a if x = a +jb)
+imag(x)  % Returns the imaginary part of x (i.e returns b if x = a+jb)
+conj(x)  % Returns the complex conjugate 
+
+
+% Common constants
+pi
+NaN
+inf
+
+% Given a meshgrid X,Y and a function defined on the meshgrid like Gauss, interpolates the value of the function at the point u1,u2
+interp2(X,Y,Gauss,u1,u2)
+
+
