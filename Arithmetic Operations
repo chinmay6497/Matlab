@@ -1,0 +1,75 @@
+transpose(A) % Transpose the matrix, which is the same as:
+A one
+
+A' % Concise version of complex transpose
+A.' % Concise version of transpose (without taking complex conjugate)
+
+size(A) % ans = 3 3
+
+% Element by Element Arithmetic vs. Matrix Arithmetic
+% On their own, the arithmetic operators act on whole matrices. When preceded
+% by a period, they act on each element instead. For example:
+A * B % Matrix multiplication
+A .* B % Multiple each element in A by its corresponding element in B
+
+% There are several pairs of functions, where one acts on each element, and
+% the other (whose name ends in m) acts on the whole matrix.
+exp(A) % exponentiate each element
+expm(A) % calculate the matrix exponential
+sqrt(A) % take the square root of each element
+sqrtm(A) %  find the matrix whose square is A
+
+% Solving matrix equations (if no solution, returns a least squares solution)
+% The \ and / operators are equivalent to the functions mldivide and mrdivide
+x=A\b % Solves Ax=b. Faster and more numerically accurate than using inv(A)*b.
+x=b/A % Solves xA=b
+
+inv(A) % calculate the inverse matrix
+pinv(A) % calculate the pseudo-inverse
+
+% Common matrix functions
+zeros(m,n) % m x n matrix of 0's
+ones(m,n) % m x n matrix of 1's
+diag(A) % Extracts the diagonal elements of a matrix A
+diag(x) % Construct a matrix with diagonal elements listed in x, and zeroes elsewhere
+eye(m,n) % Identity matrix
+linspace(x1, x2, n) % Return n equally spaced points, with min x1 and max x2
+inv(A) % Inverse of matrix A
+det(A) % Determinant of A
+eig(A) % Eigenvalues and eigenvectors of A
+trace(A) % Trace of matrix - equivalent to sum(diag(A))
+isempty(A) % Tests if array is empty
+all(A) % Tests if all elements are nonzero or true
+any(A) % Tests if any elements are nonzero or true
+isequal(A, B) % Tests equality of two arrays
+numel(A) % Number of elements in matrix
+triu(x) % Returns the upper triangular part of x
+tril(x) % Returns the lower triangular part of x
+cross(A,B) %  Returns the cross product of the vectors A and B
+dot(A,B) % Returns scalar product of two vectors (must have the same length)
+transpose(A) % Returns the transpose of A
+fliplr(A) % Flip matrix left to right
+flipud(A) % Flip matrix up to down
+
+% Matrix Factorisations
+[L, U, P] = lu(A) % LU decomposition: PA = LU,L is lower triangular, U is upper triangular, P is permutation matrix
+[P, D] = eig(A) % eigen-decomposition: AP = PD, P's columns are eigenvectors and D's diagonals are eigenvalues
+[U,S,V] = svd(X) % SVD: XV = US, U and V are unitary matrices, S has non-negative diagonal elements in decreasing order
+[Q, R] = qr(A) % if A is mxn, Q is mxm and R is mxn upper triangular
+
+% Common vector functions
+max     % largest component
+min     % smallest component
+length  % length of a vector
+sort    % sort in ascending order
+sum     % sum of elements
+prod    % product of elements
+mode    % modal value
+median  % median value
+mean    % mean value
+std     % standard deviation
+perms(x) % list all permutations of elements of x
+find(x) % Finds all non-zero elements of x and returns their indexes, can use comparison operators, 
+        % i.e. find( x == 3 ) returns indexes of elements that are equal to 3
+        % i.e. find( x >= 3 ) returns indexes of elements greater than or equal to 3
+
