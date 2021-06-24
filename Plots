@@ -1,0 +1,98 @@
+% Plotting
+x = 0:.10:2*pi; % Creates a vector that starts at 0 and ends at 2*pi with increments of .1
+y = sin(x);
+plot(x,y)
+xlabel('x axis')
+ylabel('y axis')
+title('Plot of y = sin(x)')
+axis([0 2*pi -1 1]) % x range from 0 to 2*pi, y range from -1 to 1
+
+plot(x,y1,'-',x,y2,'--',x,y3,':') % For multiple functions on one plot
+legend('Line 1 label', 'Line 2 label') % Label curves with a legend
+
+% Alternative method to plot multiple functions in one plot.
+% while 'hold' is on, commands add to existing graph rather than replacing it
+plot(x, y)
+hold on
+plot(x, z)
+hold off
+
+loglog(x, y) % A log-log plot
+semilogx(x, y) % A plot with logarithmic x-axis
+semilogy(x, y) % A plot with logarithmic y-axis
+
+fplot (@(x) x^2, [2,5]) % plot the function x^2 from x=2 to x=5
+
+% Creates a meshgrid (2D grid) to calculate a function for every point in the grid
+[X, Y] = meshgrid(x_min:step:x_max, y_min:step:y_max)
+
+grid on % Show grid; turn off with 'grid off'
+axis square % Makes the current axes region square
+axis equal % Set aspect ratio so data units are the same in every direction
+
+scatter(x, y); % Scatter-plot
+hist(x); % Histogram
+stem(x); % Plot values as stems, useful for displaying discrete data
+bar(x); % Plot bar graph
+
+z = sin(x);
+plot3(x,y,z); % 3D line plot
+
+pcolor(A) % Heat-map of matrix: plot as grid of rectangles, coloured by value
+contour(A) % Contour plot of matrix
+contourf(A) % Filled contour plot of matrix
+mesh(A) % Plot as a mesh surface
+
+h = figure % Create new figure object, with handle h
+figure(h) % Makes the figure corresponding to handle h the current figure
+close(h) % close figure with handle h
+close all % close all open figure windows
+close % close current figure window
+
+shg % bring an existing graphics window forward, or create new one if needed
+clf clear % clear current figure window, and reset most figure properties
+
+% Properties can be set and changed through a figure handle.
+% You can save a handle to a figure when you create it.
+% The function get returns a handle to the current figure
+h = plot(x, y); % you can save a handle to a figure when you create it
+set(h, 'Color', 'r')
+% 'y' yellow; 'm' magenta, 'c' cyan, 'r' red, 'g' green, 'b' blue, 'w' white, 'k' black
+set(h, 'LineStyle', '--')
+ % '--' is solid line, '---' dashed, ':' dotted, '-.' dash-dot, 'none' is no line
+get(h, 'LineStyle')
+
+
+% The function gca returns a handle to the axes for the current figure
+set(gca, 'XDir', 'reverse'); % reverse the direction of the x-axis
+
+% To create a figure that contains several axes in tiled positions, use subplot
+subplot(2,3,1); % select the first position in a 2-by-3 grid of subplots
+plot(x1); title('First Plot') % plot something in this position
+subplot(2,3,2); % select second position in the grid
+plot(x2); title('Second Plot') % plot something there
+
+% Given
+x1 = [-3:0.5:3];
+x2 = x1;
+y = randi(500, length(x1), length(x1));
+
+% Show a 3-D plot
+figure
+subplot(2,1,1);
+surf(x1,x2,y);
+xlabel(’x_1’);
+ylabel(’x_2’);
+
+% Show contours
+subplot(2,1,2);
+contour(x1,x2,y);
+xlabel(’x_{1}’);
+ylabel(’x_{2}’);
+axis equal
+
+% Show a colour map
+figure
+imagesc(x1,x2,y)
+xlabel(’x_{1}’);
+ylabel(’x_{2}’);
