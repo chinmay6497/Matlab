@@ -1,0 +1,55 @@
+A(2:3,2:3) % Creates a new matrix from the old one
+%ans =
+
+%     5     42
+%     8     9
+
+A(:,1) % All rows in column 1
+%ans =
+
+%     1
+%     4
+%     7
+
+A(1,:) % All columns in row 1
+%ans =
+
+%     1     2     3
+
+[A ; A] % Concatenation of matrices (vertically)
+%ans =
+
+%     1     2     3
+%     4     5    42
+%     7     8     9
+%     1     2     3
+%     4     5    42
+%     7     8     9
+
+% this is the same as
+vertcat(A,A);
+
+
+[A , A] % Concatenation of matrices (horizontally)
+
+%ans =
+
+%     1     2     3     1     2     3
+%     4     5    42     4     5    42
+%     7     8     9     7     8     9
+
+% this is the same as
+horzcat(A,A);
+
+
+A(:, [3 1 2]) % Rearrange the columns of original matrix
+%ans =
+
+%     3     1     2
+%    42     4     5
+%     9     7     8
+
+A(1, :) =[] % Delete the first row of the matrix
+A(:, 1) =[] % Delete the first column of the matrix
+
+squeeze(A); % Removes singular dimensions ie. 2x1x3 -> 2x3
